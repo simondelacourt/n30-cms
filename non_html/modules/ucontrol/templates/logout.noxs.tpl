@@ -1,0 +1,1 @@
+<p>{$clang.LOGOUTNOXS}</p>
