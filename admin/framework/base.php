@@ -139,6 +139,18 @@ class admin
 		}
 	}
 	/**
+	* checks if any users present, if not creates a standard user
+	*/
+	private function usersPresent() {
+		if ($this->users->countUsers() == 0) {
+			// no users present, let's create a default one
+			$this->templates->getDefaultTemplate();
+			$this->languages->getDefaultLanguage();
+			$this->users->addUser("admin", "admin@admin.com", "defaultpassword", rand(), $this->templates->templates['default']['id'], $this->languages->defaultlanguage['id'], '', 'true');
+		}
+	}
+	
+	/**
 	 * generate a link
 	 *
 	 * @param string $file
@@ -379,6 +391,12 @@ class admin
 	}
 	public function displayLogin ()
 	{
+		/**
+		* but first check if we have users present
+		*/
+		$this->usersPresent();
+		
+		
 		$error = false;
 		if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
