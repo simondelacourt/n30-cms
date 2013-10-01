@@ -305,7 +305,7 @@ CREATE TABLE `n30_tracks` (
 CREATE TABLE `n30_users` (
   `id` mediumint(9) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL DEFAULT '',
-  `pass` varchar(64) NOT NULL DEFAULT '',
+  `pass` varchar(255) NOT NULL DEFAULT '',
   `unid` varchar(64) NOT NULL DEFAULT '',
   `email` varchar(255) NOT NULL DEFAULT '',
   `template` mediumint(255) NOT NULL DEFAULT '0',
