@@ -47,7 +47,7 @@ class users
 	{
 		if (strlen($newpassword) > 4)
 		{
-			$this->cms->connection->query("UPDATE `" . TAB_USERS . "` SET pass = '" . sha1($newpassword) . "' WHERE id = '" . intval($userid) . "'");
+			$this->cms->connection->query("UPDATE `" . TAB_USERS . "` SET pass = '" . USER_SALT .  sha1($newpassword) . "' WHERE id = '" . intval($userid) . "'");
 		}
 	}
 	/**
@@ -324,7 +324,7 @@ class users
 	public function addUser ($username, $email, $pass, $unid, $template, $lang, $groups, $activated = 'true')
 	{
 		$this->cms->connection->query("INSERT INTO `" . TAB_USERS . "` (id, username, pass, unid, email, template, lang, activated) VALUES
-						(NULL, '" . $this->cms->connection->escape_string($username) . "', '" . sha1($pass) . "', '" . $unid . "','" . $email . "', '" . intval($template) . "','" . intval($lang) . "', '" . $activated . "')");
+						(NULL, '" . $this->cms->connection->escape_string($username) . "', '" . sha1(USER_SALT .  $pass) . "', '" . $unid . "','" . $email . "', '" . intval($template) . "','" . intval($lang) . "', '" . $activated . "')");
 		$uid = $this->cms->connection->insert_id();
 		// add user to groups
 		if (isset($groups[0]))

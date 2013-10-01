@@ -70,7 +70,7 @@ class user
 	 */
 	public function getUser ($username, $password)
 	{
-		$QE = $this->cms->connection->query("SELECT id FROM `" . TAB_USERS . "` WHERE username = '" . $this->cms->connection->escape_string($username) . "' AND pass = sha1('" . $this->cms->connection->escape_string($password) . "')");
+		$QE = $this->cms->connection->query("SELECT id FROM `" . TAB_USERS . "` WHERE username = '" . $this->cms->connection->escape_string($username) . "' AND pass = sha1('" . USER_SALT . $this->cms->connection->escape_string($password) . "')");
 		if ($this->cms->connection->num_rows($QE) == 1)
 		{
 			return ($this->cms->connection->fetch_assoc($QE));

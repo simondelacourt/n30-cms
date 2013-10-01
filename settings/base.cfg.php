@@ -18,4 +18,6 @@ define('SQL_HOST', '127.0.0.1'); /* --- the SQL connectors hostname      --- */
 define('SQL_USER', 'root'); /* --- the SQL connectors username      --- */
 define('SQL_PASS', ''); /* --- the SQL connectors password      --- */
 define('SQL_DATB', 'n30_06'); /* --- the SQL connectors database      --- */
+
+define('USER_SALT', 'longsentencemakingithardtounderstandstuff');
 ?>
