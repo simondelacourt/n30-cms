@@ -31,7 +31,7 @@ require_once './non_html/framework/settings.php';
 require_once './non_html/framework/user.php';
 require_once './non_html/framework/users.php';
 require_once './non_html/framework/akismet.php';
-require_once './non_html/Smarty-2.6.19/Smarty.class.php';
+require_once './non_html/Smarty/Smarty.class.php';
 require_once './non_html/sqlconnectors/mysqli.con.php';
 error_reporting(E_ALL);
 ?>

@@ -201,15 +201,23 @@ class n30
 					 */
 					if (file_exists(DIR_MODUL . DIRECTORY_SEPARATOR . $module . DIRECTORY_SEPARATOR . "module.php"))
 					{
-						if (class_exists($module))
-						{
-							$this->modules[$module] = new $module(&$this);
-						} else
-						{
+						if (class_exists($module)) {
+							$this->modules[$module] = new $module($this);
+						} else {
+							/**
+							* autoload might have failed, why not include
+							*/
+							include (DIR_MODUL . DIRECTORY_SEPARATOR . $module . DIRECTORY_SEPARATOR . "module.php");
+							
+							
 							/**
 							 * no class in file, very very wrong :P
 							 */
-							throw new Exception("Module (" . $module . ") does not contain required code.");
+							if (class_exists($module)) {
+								$this->modules[$module] = new $module($this);
+							} else {
+								throw new Exception("Module (" . $module . ") does not contain required code.");
+							}
 						}
 					} else
 					{

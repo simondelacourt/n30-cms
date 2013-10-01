@@ -26,7 +26,6 @@ if (is_dir($plugindir))
         }
     }
 }
-
 class content
 {
 	private $cms;
