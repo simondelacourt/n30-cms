@@ -36,9 +36,9 @@ class languages
 	public $lang;
 	public $defaultlanguage;
 	public $selectedlanguage;
-	public function __construct (&$cms)
+	public function __construct ($cms)
 	{
-		$this->cms = &$cms;
+		$this->cms = $cms;
 	}
 	/**
 	 * gets default language for CMS

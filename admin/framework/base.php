@@ -16,9 +16,7 @@
  * ------------------------------------------------------------------------------------
  * Author: Simon de la Court
  * 
- */
-/**
-/**
+ *
  * TODO: create legacy module loading
  */
 class admin
